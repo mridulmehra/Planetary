@@ -1,0 +1,25 @@
+        const astroidData = {
+            data: repsonse2,
+        };
+        const nearEarthObjects = astroidData.data.data.near_earth_objects
+        console.log(nearEarthObjects);
+
+
+
+        try{
+
+            let astroidStartDate = req.body.astroid_start_date;
+        
+            let astroidEndDate = req.body.astroid_end_date;
+        
+            // console.log(astroidStartDate); 
+        
+            let urlAstroid = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${astroidStartDate}&end_date=${astroidEndDate}&api_key=${apiKey}`
+        
+            const repsonse2 = await axios.get(urlAstroid);
+            console.log(repsonse2)
+        
+        
+        }  catch(error) {
+            console.log(error);
+        }
